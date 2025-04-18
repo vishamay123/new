@@ -6,7 +6,7 @@
 
     - name: copy website file
       copy:
-        src: "./website"
+        src: "./deployed/website"
         dest: "/var/www/html"
         owner: www-data
         group: www-data
