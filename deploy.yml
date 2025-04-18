@@ -6,7 +6,7 @@
 
     - name: copy website file
       copy:
-        src: "./deployed/website"
+        src: "/var/lib/jenkins/workspace/deployed/website"
         dest: "/var/www/html"
         owner: www-data
         group: www-data
