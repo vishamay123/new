@@ -11,4 +11,10 @@
         owner: www-data
         group: www-data
         mode: '0644'
+
+    - name: ensure that apache2
+      service:
+        name: apache2
+        state: started
+        enabled: yes
         

@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('checkout code') {
+            steps {
+                git branch: 'master', url: 'https://github.com/vishamay123/new.git'
+            }
+        }
+        
+        stage('deployment') {
+            steps {
+            sh '''
+            ansible-playbook -i ip deploy.yml \
+            --ssh-extra-args="-o StrictHostKeyChecking=no"
+           '''
+            }
+        }
+
+    }
+
+    post {
+      success {
+        echo '✅ deployed successfully!'
+      }
+
+      failure { 
+        echo '❌ Deployment failed!'
+    }
+    }
+}
